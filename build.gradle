@@ -20,3 +20,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+wrapper {
+    gradleVersion'7.4'
+}

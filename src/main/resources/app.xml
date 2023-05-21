@@ -6,7 +6,23 @@
 
     <!-- bean definitions here -->
     <!-- using aliases to recognize beans -->
-    <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool"></bean>
-    <bean id="pool2" name="p5" class="com.ivdev.spring.database.pool.ConnectionPool"></bean>
+    <!-- The index allows you to set the order of initialization of class fields -->
+    <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool">
+        <constructor-arg index="0" value="postgres"/>
+        <constructor-arg index="2">
+            <list>
+                <value>--arg1=value1</value>
+                <value>--arg2=value2</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="1" value="10"/>
+        <constructor-arg index="3">
+            <map>
+                <entry key="url" value="postgres"/>
+                <entry key="password" value="125"/>
+            </map>
+        </constructor-arg>
 
+    </bean>
+    <!--<bean id="pool2" name="p5" class="com.ivdev.spring.database.pool.ConnectionPool"></bean> -->
 </beans>
