@@ -18,4 +18,14 @@ public class ConnectionPool {
         this.args = args;
         this.properties = properties;
     }
+
+    //calls after constructor & setters
+    private void init() {
+        System.out.println("Init connection pool.");
+    }
+
+    //calls after closing ApplicationContext
+    private void destroy() {
+        System.out.println("Clean connection pool.");
+    }
 }

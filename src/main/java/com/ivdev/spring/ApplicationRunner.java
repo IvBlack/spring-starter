@@ -12,10 +12,12 @@ import java.awt.*;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
-        var context = new ClassPathXmlApplicationContext("app.xml");
-
-        //use alias "pool2" to recognize required bean
-        var connectionPool = context.getBean("pool2", ConnectionPool.class);
-        System.out.println(connectionPool);
+        try (var context = new ClassPathXmlApplicationContext("app.xml"))
+        {
+            //use alias "p1" to recognize required bean
+            //clazz -> String -> Map(String, Object)
+            var connectionPool = context.getBean("p1", ConnectionPool.class);
+            System.out.println(connectionPool);
+        }
     }
 }

@@ -7,7 +7,10 @@
     <!-- bean definitions here -->
     <!-- using aliases to recognize beans -->
     <!-- The index allows you to set the order of initialization of class fields -->
-    <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool">
+    <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool"
+          init-method="init"
+          destroy-method="destroy"
+          scope="singleton">
         <constructor-arg index="0" value="postgres"/>
         <constructor-arg index="2">
             <list>
