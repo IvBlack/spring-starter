@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- bean for app/properties, config  file for IoC-container -->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations" value="app.properties"/>
+    </bean>
+
+    <!-- or we can use context for bean creation through xmlns-schema-->
+<!--    <context:property-placeholder location="classpath:app.properties"/>-->
 
     <!-- bean definitions here -->
     <!-- using aliases to recognize beans -->
@@ -11,21 +23,27 @@
           init-method="init"
           destroy-method="destroy"
           scope="singleton">
-        <constructor-arg index="0" value="postgres"/>
-        <constructor-arg index="2">
+
+        <!-- mapping class fields through indexes or class types-->
+        <constructor-arg index="0" value="${db.postgres}"/>
+        <constructor-arg name="args" type="java.util.List">
             <list>
                 <value>--arg1=value1</value>
                 <value>--arg2=value2</value>
             </list>
         </constructor-arg>
-        <constructor-arg index="1" value="10"/>
-        <constructor-arg index="3">
+        <constructor-arg index="1" value="${db.pool.size}"/>
+
+        <!-- using SPeL -->
+        <property name="properties">
             <map>
                 <entry key="url" value="postgres"/>
                 <entry key="password" value="125"/>
+                <entry key="driver" value="#{driver.substring(3)}"/>
+                <entry key="test" value="${driver}"/>
+                <entry key="hosts" value="#{'${db.hosts}'.split(',')}"/>
             </map>
-        </constructor-arg>
-
+        </property>
     </bean>
     <!--<bean id="pool2" name="p5" class="com.ivdev.spring.database.pool.ConnectionPool"></bean> -->
 </beans>
