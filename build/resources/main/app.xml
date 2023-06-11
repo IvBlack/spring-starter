@@ -10,16 +10,20 @@
 
     <!-- bean for app/properties, config  file for IoC-container -->
 
-    <!-- Way from app.xml to ApplicationContext: PropertySourcesPlaceholderConfigurer ->
+    <!-- Way from app.xml to ApplicationContext:
+    PropertySourcesPlaceholderConfigurer ->
     PropertyResourceConfigurer -> PropertyResourceConfigurer ->
     key interface BeanFactoryPostProcessor that accepts root interface BeanFactory as input.. -->
-
     <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations" value="application.properties"/>
     </bean>
 
+    <!-- for annotation config-->
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
     <!-- or we can use context for beans creation through xmlns-schema-->
 <!--    <context:property-placeholder location="classpath:application.properties"/>-->
+    <context:annotation-config/>
 
     <bean class="com.ivdev.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="com.ivdev.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>

@@ -1,11 +1,13 @@
 package com.ivdev.spring.database.repository;
 
+import com.ivdev.spring.bpp.InjectBean;
+import com.ivdev.spring.database.pool.ConnectionPool;
+
 import javax.sql.ConnectionPoolDataSource;
 
 public class CompanyRepository {
-    private final ConnectionPoolDataSource connectionPoolDataSource;
 
-    public CompanyRepository(ConnectionPoolDataSource connectionPoolDataSource) {
-        this.connectionPoolDataSource = connectionPoolDataSource;
-    }
+    //custom annotation over field for inject bean
+    @InjectBean
+    private ConnectionPool connectionPool;
 }
