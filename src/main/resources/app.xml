@@ -29,6 +29,7 @@
     <!--    Add TransactionBeanPostProcessor and run app-->
     <bean class="com.ivdev.spring.bpp.InjectBeanPostProcessor"/>
     <bean class="com.ivdev.spring.bpp.TransactionBeanPostProcessor"/>
+    <bean class="com.ivdev.spring.bpp.AuditingBeanPostProcessor"/>
 
 
     <bean class="com.ivdev.spring.bfpp.LogBeanFactoryPostProcessor"/>

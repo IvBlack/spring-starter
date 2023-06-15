@@ -1,5 +1,6 @@
 package com.ivdev.spring.database.repository;
 
+import com.ivdev.spring.bpp.Auditing;
 import com.ivdev.spring.bpp.InjectBean;
 import com.ivdev.spring.bpp.Transaction;
 import com.ivdev.spring.database.entity.Company;
@@ -10,6 +11,7 @@ import javax.sql.ConnectionPoolDataSource;
 import java.util.Optional;
 
 @Transaction
+@Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company>{
 
     //custom annotation over field for inject bean

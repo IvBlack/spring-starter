@@ -19,7 +19,7 @@ import java.util.Map;
 1. check if bean contains Transaction annotation
 2. create proxy for end-to-end functionality (like JUnit, using mocks; Hibernate with lazy init)
 3. using dynamic proxy through inner java Proxy-class
-4. adding new functionality, row 29
+4. adding new functionality, row 52
 */
 public class TransactionBeanPostProcessor implements BeanPostProcessor {
 
@@ -58,6 +58,6 @@ public class TransactionBeanPostProcessor implements BeanPostProcessor {
                         }
                     });
         }
-        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+        return bean;
     }
 }

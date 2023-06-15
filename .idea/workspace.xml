@@ -5,36 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2c9cbb4-c81b-44a3-b427-71ccde24902e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/bpp/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/bpp/TransactionBeanPostProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/database/entity/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/database/repository/CrudRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/bpp/Auditing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/bpp/AuditingBeanPostProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/ApplicationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/ApplicationRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/bfpp/LogBeanFactoryPostProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/bfpp/LogBeanFactoryPostProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/bfpp/VerifyPropertyBeanFactoryPostProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/bfpp/VerifyPropertyBeanFactoryPostProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/database/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/database/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/database/pool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/database/pool/ConnectionPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/database/repository/CompanyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/database/repository/CompanyRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/ioc/Container.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/ioc/Container.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/ivdev/spring/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/spring-starter-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/app.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/ApplicationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/ApplicationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/database/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/database/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/bpp/TransactionBeanPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/bpp/TransactionBeanPostProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
