@@ -25,12 +25,16 @@
 <!--    <context:property-placeholder location="classpath:application.properties"/>-->
     <context:annotation-config/>
 
-<!--    InjectBeanPostProcessor will be called firstly by applicationContext-->
+    <!--    PostProcessors will be call firstly by applicationContext-->
+    <!--    Add TransactionBeanPostProcessor and run app-->
     <bean class="com.ivdev.spring.bpp.InjectBeanPostProcessor"/>
+    <bean class="com.ivdev.spring.bpp.TransactionBeanPostProcessor"/>
+
+
     <bean class="com.ivdev.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="com.ivdev.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
-    <!-- bean definitions here -->
+    <!-- BEAN DEFINITIONS HERE -->
     <!-- using aliases to recognize beans -->
     <!-- The index allows you to set the order of initialization of class fields -->
     <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool"
@@ -59,5 +63,5 @@
             </map>
         </property>
     </bean>
-    <bean id="pool2" name="p5" class="com.ivdev.spring.database.repository.CompanyRepository"></bean>
+    <bean id="pool2" name="companyRepository" class="com.ivdev.spring.database.repository.CompanyRepository"></bean>
 </beans>

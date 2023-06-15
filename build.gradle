@@ -25,3 +25,5 @@ test {
 wrapper {
     gradleVersion'7.4'
 }
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
