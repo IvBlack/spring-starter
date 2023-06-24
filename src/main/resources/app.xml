@@ -38,6 +38,7 @@
     <!-- BEAN DEFINITIONS HERE -->
     <!-- using aliases to recognize beans -->
     <!-- The index allows you to set the order of initialization of class fields -->
+    <bean id="pool2" class="com.ivdev.spring.database.pool.ConnectionPool" />
     <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool"
           init-method="init"
           destroy-method="destroy"
