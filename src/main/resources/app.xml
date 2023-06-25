@@ -18,52 +18,43 @@
         <property name="locations" value="application.properties"/>
     </bean>
 
+<!--    rewrite to java-config-->
+<!--    <constructor-arg name="args" type="java.util.List">-->
+<!--        <list>-->
+<!--            <value>&#45;&#45;arg1=value1</value>-->
+<!--            <value>&#45;&#45;arg2=value2</value>-->
+<!--        </list>-->
+<!--    </constructor-arg>-->
+<!--    <constructor-arg index="1" value="${db.pool.size}"/>-->
+
+<!--    &lt;!&ndash; using SPeL &ndash;&gt;-->
+<!--    <property name="properties">-->
+<!--        <map>-->
+<!--            <entry key="url" value="postgres"/>-->
+<!--            <entry key="password" value="125"/>-->
+<!--            <entry key="driver" value="#{driver.substring(3)}"/>-->
+<!--            <entry key="test" value="postgres:5432"/>-->
+<!--            <entry key="hosts" value="#{'${db.hosts}'.split(',')}"/>-->
+<!--        </map>-->
+<!--    </property>-->
+
     <!-- for annotation config-->
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
     <!-- or we can use context for beans creation through xmlns-schema-->
 <!--    <context:property-placeholder location="classpath:application.properties"/>-->
-    <context:annotation-config/>
 
-    <!--    PostProcessors will be call firstly by applicationContext-->
-    <!--    Add TransactionBeanPostProcessor and run app-->
-    <bean class="com.ivdev.spring.bpp.InjectBeanPostProcessor"/>
-    <bean class="com.ivdev.spring.bpp.TransactionBeanPostProcessor"/>
-    <bean class="com.ivdev.spring.bpp.AuditingBeanPostProcessor"/>
+<!--    component-scan contains all beanPostProcessors from <context:annotation-config/>-->
+<!--    if the classes satisfy the filter condition, then we automatically create beans -->
+    <context:component-scan base-package="com.ivdev.spring"
 
-
-    <bean class="com.ivdev.spring.bfpp.LogBeanFactoryPostProcessor"/>
-    <bean class="com.ivdev.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
     <!-- BEAN DEFINITIONS HERE -->
     <!-- using aliases to recognize beans -->
     <!-- The index allows you to set the order of initialization of class fields -->
-    <bean id="pool2" class="com.ivdev.spring.database.pool.ConnectionPool" />
-    <bean id="pool1" name="p1, p2, p3" class="com.ivdev.spring.database.pool.ConnectionPool"
-          init-method="init"
-          destroy-method="destroy"
-          scope="singleton">
 
-        <!-- mapping class fields through indexes or class types-->
-        <constructor-arg index="0" value="postgres"/>
-        <constructor-arg name="args" type="java.util.List">
-            <list>
-                <value>--arg1=value1</value>
-                <value>--arg2=value2</value>
-            </list>
-        </constructor-arg>
-        <constructor-arg index="1" value="${db.pool.size}"/>
-
-        <!-- using SPeL -->
-        <property name="properties">
-            <map>
-                <entry key="url" value="postgres"/>
-                <entry key="password" value="125"/>
-                <entry key="driver" value="#{driver.substring(3)}"/>
-                <entry key="test" value="postgres:5432"/>
-                <entry key="hosts" value="#{'${db.hosts}'.split(',')}"/>
-            </map>
-        </property>
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
     <bean id="pool2" name="companyRepository" class="com.ivdev.spring.database.repository.CompanyRepository"></bean>
 </beans>

@@ -1,31 +1,38 @@
 package com.ivdev.spring.database.repository;
 
 import com.ivdev.spring.bpp.Auditing;
-import com.ivdev.spring.bpp.InjectBean;
 import com.ivdev.spring.bpp.Transaction;
 import com.ivdev.spring.database.entity.Company;
 import com.ivdev.spring.database.pool.ConnectionPool;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-import javax.sql.ConnectionPoolDataSource;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 @Transaction
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company>{
 
-    //Resource injects by bean name
-//    @Resource(name = "pool1")
-//    @Qualifier("pool1")
     //in practice, we can use field name like bean name in context
-    private ConnectionPool pool1;
+    private final ConnectionPool pool1;
 
-    @Autowired
-    private List<ConnectionPool> pools;
+    //all ConnectionPool-type beans will be injected into pools var
+    private final List<ConnectionPool> pools;
+
+    //@Value - for inject values from propertiy-file
+    private final Integer poolSize;
+
+    public CompanyRepository(ConnectionPool pool1,
+                             List<ConnectionPool> pools,
+                             @Value("${db.pool.size}") Integer poolSize) {
+        this.pool1 = pool1;
+        this.pools = pools;
+        this.poolSize = poolSize;
+    }
 
     //to see how lifecycle bean works here
     @PostConstruct

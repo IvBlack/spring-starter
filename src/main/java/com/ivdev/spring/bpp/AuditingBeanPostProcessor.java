@@ -8,6 +8,7 @@ before and after all his methods.
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
@@ -19,6 +20,8 @@ import java.util.Map;
 3. using dynamic proxy through inner java Proxy-class
 4. adding new functionality, row 46
 */
+
+@Component
 public class AuditingBeanPostProcessor implements BeanPostProcessor {
 
     //прокси может не хранить метаинфо о нашем бине
