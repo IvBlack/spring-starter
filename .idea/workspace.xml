@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2c9cbb4-c81b-44a3-b427-71ccde24902e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/config/ApplicationConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/ApplicationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivdev/spring/ApplicationRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +103,7 @@
       <recent name="com.ivdev.spring.bpp" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.spring-starter [clean]">
+  <component name="RunManager" selected="Application.ApplicationRunner">
     <configuration name="ApplicationRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ivdev.spring.ApplicationRunner" />
       <module name="spring-starter.main" />
@@ -213,7 +216,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ivdev/spring/ApplicationRunner.java</url>
-          <line>34</line>
+          <line>36</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
