@@ -1,8 +1,7 @@
 package com.ivdev.spring.service;
 
-import com.ivdev.spring.database.UserRepository;
+import com.ivdev.spring.database.repository.UserRepository;
 import com.ivdev.spring.database.entity.Company;
-import com.ivdev.spring.database.repository.CompanyRepository;
 import com.ivdev.spring.database.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 

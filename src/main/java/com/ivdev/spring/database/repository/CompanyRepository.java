@@ -6,12 +6,15 @@ import com.ivdev.spring.database.entity.Company;
 import com.ivdev.spring.database.pool.ConnectionPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
+@Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
 @Repository
 @Transaction
 @Auditing

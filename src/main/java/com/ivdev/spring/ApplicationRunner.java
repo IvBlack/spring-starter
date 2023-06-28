@@ -1,18 +1,11 @@
 package com.ivdev.spring;
 
 import com.ivdev.spring.config.ApplicationConfiguration;
-import com.ivdev.spring.database.UserRepository;
 import com.ivdev.spring.database.pool.ConnectionPool;
-import com.ivdev.spring.database.repository.CompanyRepository;
 import com.ivdev.spring.database.repository.CrudRepository;
-import com.ivdev.spring.ioc.Container;
-import com.ivdev.spring.service.UserService;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.sql.ConnectionPoolDataSource;
-import java.awt.*;
 import java.io.Serializable;
 
 public class ApplicationRunner {
