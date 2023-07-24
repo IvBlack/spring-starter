@@ -19,6 +19,16 @@ How BeanPostProcessor works behind the scene:
 public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
     private ApplicationContext applicationContext;
 
+/*
+Using reflection API:
+- we'll get all the bean fields
+- filter out those marked with a custom annotation
+-if there are any: for each field of units. and we will get the desired bin from the ApplicationContext
+- ApplicationContext is injected through the setter from the corresponding aware interface
+- from the context we get a bin by field type: field.GetType()
+- get access to a private field
+- set the value for the field in this bin
+*/
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
@@ -32,6 +42,7 @@ public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationCo
         return bean;
     }
 
+    //инжект ApplicationContext через сеттер интерфейса
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
