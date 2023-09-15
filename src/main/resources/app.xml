@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- Way from app.xml to ApplicationContext: PropertySourcesPlaceholderConfigurer ->
+    PlaceholderConfigurerSupport -> PropertyResourceConfigurer ->
+    key interface BeanFactoryPostProcessor that accepts root interface BeanFactory as input.. -->
+
+<!--    PlaceholderConfigurer is used to process the passed values in xml using the SPEL language-->
+<!-- it's a bean for app/properties, config  file for IoC-container -->
+
+<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
+<!--        <property name="locations" value="application.properties"/>-->
+<!--    </bean>-->
+
+    <!-- BEAN DEFINITIONS HERE -->
+    <!-- using aliases to recognize beans -->
+    <!-- The index allows you to set the order of initialization of class fields -->
+
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="${db.driver}"/>
+    </bean>
+    <bean id="pool2" name="companyRepository" class="com.ivdev.spring.database.repository.CompanyRepository"></bean>
+
+<!--    rewrite to java-config-->
+<!--    <constructor-arg name="args" type="java.util.List">-->
+<!--        <list>-->
+<!--            <value>&#45;&#45;arg1=value1</value>-->
+<!--            <value>&#45;&#45;arg2=value2</value>-->
+<!--        </list>-->
+<!--    </constructor-arg>-->
+<!--    <constructor-arg index="1" value="${db.pool.size}"/>-->
+
+<!--    &lt;!&ndash; using SPeL &ndash;&gt;-->
+<!--    <property name="properties">-->
+<!--        <map>-->
+<!--            <entry key="url" value="postgres"/>-->
+<!--            <entry key="password" value="125"/>-->
+<!--            <entry key="driver" value="#{driver.substring(3)}"/>-->
+<!--            <entry key="test" value="postgres:5432"/>-->
+<!--            <entry key="hosts" value="#{'${db.hosts}'.split(',')}"/>-->
+<!--        </map>-->
+<!--    </property>-->
+
+<!-- ***********************************************-->
+    <!-- for annotation config-->
+<!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
+
+    <!-- or we can use context for beans creation through xmlns-schema-->
+    <context:property-placeholder location="classpath:application.properties"/>
+
+<!--    component-scan contains all beanPostProcessors from <context:annotation-config/>-->
+<!--    if the classes satisfy the filter condition, then we automatically create beans -->
+    <context:component-scan base-package="com.ivdev.spring"
+                            annotation-config="true"
+                            resource-pattern="**/*.class"
+                            scoped-proxy="no"
+                            scope-resolver=""
+                            use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+        <context:include-filter type="assignable"  expression="com.ivdev.spring.database.repository.CrudRepository"/>
+        <context:include-filter type="regex" expression="com\\..+Repository"/>
+    </context:component-scan>
+</beans>
