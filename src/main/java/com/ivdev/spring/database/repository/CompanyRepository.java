@@ -11,7 +11,6 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,10 +40,10 @@ public class CompanyRepository implements CrudRepository<Integer, Company>{
     }
 
     //to see how lifecycle bean works here
-    @PostConstruct
-    private void init() {
-        System.out.println("init company repository");
-    }
+//    @PostConstruct
+//    private void init() {
+//        System.out.println("init company repository");
+//    }
 
     @Override
     public Optional<Company> findById(Integer id) {
