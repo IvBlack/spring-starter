@@ -3,7 +3,8 @@ package com.ivdev.spring.database.repository;
 import java.util.Optional;
 
 public interface CrudRepository<K, E> {
+
     Optional<E> findById(K id);
 
-    void delete(E Entity);
+    void delete(E entity);
 }
