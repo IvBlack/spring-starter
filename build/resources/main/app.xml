@@ -8,15 +8,25 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <!-- bean for app/properties, config  file for IoC-container -->
-
-    <!-- Way from app.xml to ApplicationContext:
-    PropertySourcesPlaceholderConfigurer ->
-    PropertyResourceConfigurer -> PropertyResourceConfigurer ->
+    <!-- Way from app.xml to ApplicationContext: PropertySourcesPlaceholderConfigurer ->
+    PlaceholderConfigurerSupport -> PropertyResourceConfigurer ->
     key interface BeanFactoryPostProcessor that accepts root interface BeanFactory as input.. -->
+
+<!--    PlaceholderConfigurer is used to process the passed values in xml using the SPEL language-->
+<!-- it's a bean for app/properties, config  file for IoC-container -->
+
 <!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
 <!--        <property name="locations" value="application.properties"/>-->
 <!--    </bean>-->
+
+    <!-- BEAN DEFINITIONS HERE -->
+    <!-- using aliases to recognize beans -->
+    <!-- The index allows you to set the order of initialization of class fields -->
+
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="${db.driver}"/>
+    </bean>
+    <bean id="pool2" name="companyRepository" class="com.ivdev.spring.database.repository.CompanyRepository"></bean>
 
 <!--    rewrite to java-config-->
 <!--    <constructor-arg name="args" type="java.util.List">-->
@@ -38,11 +48,12 @@
 <!--        </map>-->
 <!--    </property>-->
 
+<!-- ***********************************************-->
     <!-- for annotation config-->
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
     <!-- or we can use context for beans creation through xmlns-schema-->
-<!--    <context:property-placeholder location="classpath:application.properties"/>-->
+    <context:property-placeholder location="classpath:application.properties"/>
 
 <!--    component-scan contains all beanPostProcessors from <context:annotation-config/>-->
 <!--    if the classes satisfy the filter condition, then we automatically create beans -->
@@ -55,14 +66,4 @@
         <context:include-filter type="assignable"  expression="com.ivdev.spring.database.repository.CrudRepository"/>
         <context:include-filter type="regex" expression="com\\..+Repository"/>
     </context:component-scan>
-
-
-    <!-- BEAN DEFINITIONS HERE -->
-    <!-- using aliases to recognize beans -->
-    <!-- The index allows you to set the order of initialization of class fields -->
-
-    <bean id="driver" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${db.driver}"/>
-    </bean>
-    <bean id="pool2" name="companyRepository" class="com.ivdev.spring.database.repository.CompanyRepository"></bean>
 </beans>
