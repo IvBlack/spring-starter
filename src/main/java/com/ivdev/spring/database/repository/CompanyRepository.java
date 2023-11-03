@@ -23,7 +23,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     public CompanyRepository(ConnectionPool pool1,
                              List<ConnectionPool> pools,
-                             @Value("${db.pool.size}") Integer poolSize) {
+                             @Value("${db.pool.size") Integer poolSize) {
         this.pool1 = pool1;
         this.pools = pools;
         this.poolSize = poolSize;
