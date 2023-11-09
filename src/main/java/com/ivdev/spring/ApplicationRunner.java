@@ -12,9 +12,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.io.Serializable;
 
 @SpringBootApplication
+//класс д.б. в главной дирректории проекта
 public class ApplicationRunner {
 
     public static void main(String[] args) {
+        //под капотом метода run происходит инициализация контекста
         var context = SpringApplication.run(ApplicationRunner.class, args);
         System.out.println(context.getBeanDefinitionCount());
     }
