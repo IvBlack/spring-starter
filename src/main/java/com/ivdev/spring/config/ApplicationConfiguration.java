@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 //@ImportResource("classpath:application.xml")
 @Import(WebConfiguration.class)
 @Configuration(proxyBeanMethods = true)
-@PropertySource("classpath:application.properties")
+//@PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "com.ivdev.spring",
         useDefaultFilters = false,
         includeFilters = {
