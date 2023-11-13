@@ -17,17 +17,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 //@ImportResource("classpath:application.xml")
 @Import(WebConfiguration.class)
 @Configuration(proxyBeanMethods = true)
 //@PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = "com.ivdev.spring",
-        useDefaultFilters = false,
-        includeFilters = {
-                @Filter(type = FilterType.ANNOTATION, value = Component.class),
-                @Filter(type = FilterType.ASSIGNABLE_TYPE, value = CrudRepository.class),
-                @Filter(type = FilterType.REGEX, pattern = "com\\..+Repository")
-        })
 public class ApplicationConfiguration {
 
     @Bean("pool2")
@@ -54,6 +49,24 @@ public class ApplicationConfiguration {
         var connectionPool2 = pool3();
         var connectionPool3 = pool3();
         return new UserRepository(pool3());
+    }
+
+    @Bean
+    public CrudRepository crudRepository() {
+        var connectionPool1 = pool3();
+        var connectionPool2 = pool3();
+        var connectionPool3 = pool3();
+        return new CrudRepository() {
+            @Override
+            public Optional findById(Object id) {
+                return Optional.empty();
+            }
+
+            @Override
+            public void delete(Object entity) {
+
+            }
+        };
     }
 }
 
