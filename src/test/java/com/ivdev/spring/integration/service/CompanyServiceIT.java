@@ -4,8 +4,10 @@ import com.ivdev.spring.ApplicationRunner;
 import com.ivdev.spring.config.DBProperties;
 import com.ivdev.spring.database.entity.Company;
 import com.ivdev.spring.dto.CompanyReadDto;
+import com.ivdev.spring.integration.customannotation.IT;
 import com.ivdev.spring.listener.entity.EntityEvent;
 import com.ivdev.spring.service.CompanyService;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,23 +30,17 @@ SpringExtension знает, как интегрировать jUnit с
 TestContext Framework И предоставить ApplicationContext, а какой именно контекст -
 указывает @ContextConfiguration
 */
-@ActiveProfiles("test")
-@SpringBootTest
-//@ExtendWith(SpringExtension.class)
-//@ContextConfiguration(classes = ApplicationRunner.class,
-//initializers = ConfigDataApplicationContextInitializer.class)
+@IT
+@RequiredArgsConstructor
 public class CompanyServiceIT {
-
     private static final Integer COMPANY_ID = 1;
-    @Autowired
-    private CompanyService companyService;
-    @Autowired
-    private DBProperties dbProperties;
+    private final CompanyService companyService;
+    private final DBProperties dbProperties;
 
     @Test
     void findById() {
         var expectedResult = new CompanyReadDto(COMPANY_ID); //expected company object
-        var actualResult = companyService.findById(COMPANY_ID);
+        var actualResult = companyService.findById(1);
         assertTrue(actualResult.isPresent());
 
         actualResult.ifPresent(actual -> assertEquals(expectedResult, actual));
