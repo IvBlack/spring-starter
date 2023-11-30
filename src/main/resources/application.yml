@@ -21,3 +21,10 @@ db:
       timeout: 4
 
 spring.profiles.active: qa
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres
+    password: pass
+    driver-class-name: org.postgresql.Driver
+    #tomcat
